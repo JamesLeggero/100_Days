@@ -111,7 +111,8 @@ class Blackjack
             house_hit
         elsif @house.total >= 17 && @house.total < 22
             puts 'House will stay.'
-            puts 'write compar hands'
+            puts ''
+            compare_hands
         else
             house_bust
         end
@@ -122,6 +123,25 @@ class Blackjack
         @house.bankroll -= 10
         @player.bankroll += 10
         puts "The House went bust with #{@house.total}! Your current bankroll is #{@player.bankroll}."
+        another_deal
+    end
+
+    def compare_hands
+        puts "#{@player.name}'s final total is #{@player.total} and House's total is #{@house.total}."
+        if @player.total > @house.total
+            @player.bankroll += 10
+            @house.bankroll -= 10
+            puts ''
+            puts "#{@player.name} wins! Your bankroll is at $#{@player.bankroll}."
+        elsif @player.total < @house.total
+            @player.bankroll -= 10
+            @house.bankroll += 10
+            puts ''
+            puts "House wins, boo! Your bankroll is at $#{@player.bankroll}."
+        else
+            puts ''
+            puts "It's a tie, alright! Your bankroll is still at $#{@player.bankroll}."
+        end
         another_deal
     end
     
