@@ -107,14 +107,22 @@ class Blackjack
         puts ''
         if @house.total < 17
             puts 'House will hit.'
+            puts ''
             house_hit
         elsif @house.total >= 17 && @house.total < 22
             puts 'House will stay.'
             puts 'write compar hands'
         else
-            puts 'will write house bust'
+            house_bust
         end
 
+    end
+
+    def house_bust
+        @house.bankroll -= 10
+        @player.bankroll += 10
+        puts "The House went bust with #{@house.total}! Your current bankroll is #{@player.bankroll}."
+        another_deal
     end
     
     def another_deal
@@ -124,6 +132,7 @@ class Blackjack
         puts ''
         if input == 'q'
             puts "Ok. Your final bankroll was #{@player.bankroll}. Until next time!"
+            puts ''
             exit
         elsif input == 'd'
             puts "Here we go! Your current bankroll is #{@player.bankroll}"
@@ -192,7 +201,7 @@ class Blackjack
 
     def player_stay
         puts ''
-        puts "Player stays with #{@player.total}."
+        puts "#{@player.name} stays with #{@player.total}."
         puts ''
         # puts "House has #{@house.hand[0].name} and #{@house.hand[1].name} for a total of #{@house.total}"
         house_hand_check
