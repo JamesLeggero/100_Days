@@ -68,7 +68,6 @@ class Blackjack
         if @player.total > 21
             player_bust
         else
-            puts 'phd hit'
             hit_or_stay
 
         end
@@ -94,12 +93,33 @@ class Blackjack
             @house.total += @house.hand[i].value
         i += 1
         end
-        # if @house.hand.length > 1 then house_hand_check end
+        house_hand_check
+    end
+
+    def house_hand_check
+        puts "#{@house.name} currently has:"
+        i = 0
+        while i < @house.hand.length do
+            puts @house.hand[i].name
+            i += 1
+        end
+        puts "for a total of #{@house.total}"
+        puts ''
+        if @house.total < 17
+            puts 'House will hit.'
+            house_hit
+        elsif @house.total >= 17 && @house.total < 22
+            puts 'House will stay.'
+            puts 'write compar hands'
+        else
+            puts 'will write house bust'
+        end
+
     end
     
     def another_deal
         puts ''
-        puts 'Would you like another deal? Press (d) to deal or (q) to quit'
+        print 'Would you like another deal? Press (d) to deal or (q) to quit: '
         input = gets.chomp.downcase
         puts ''
         if input == 'q'
@@ -138,7 +158,15 @@ class Blackjack
         puts "Remaining cards: #{@deck.length}"
         puts ''
         @house.hand = []
-        2.times {house_hit}
+        2.times do
+            @house.total = 0
+            @house.hand.push @deck.pop
+            i = 0
+            while i < @house.hand.length do
+                @house.total += @house.hand[i].value
+                i += 1
+            end
+        end
         puts "House gets #{@house.hand[0].name} and one other card."
         puts ''
         @player.hand = []
@@ -149,7 +177,7 @@ class Blackjack
 
     def hit_or_stay
         puts ''
-        puts 'Would you like to hit (h) or stay (s): '
+        print 'Would you like to hit (h) or stay (s): '
         input = gets.chomp.downcase
         if input == 'h'
             player_hit
@@ -157,22 +185,26 @@ class Blackjack
             player_stay
         else
             puts 'You didn\'t type h or s.'
-            puts 'hs else'
+            puts ''
             hit_or_stay
         end
     end
 
     def player_stay
         puts ''
-        puts "Player has #{@player.total}."
+        puts "Player stays with #{@player.total}."
+        puts ''
         # puts "House has #{@house.hand[0].name} and #{@house.hand[1].name} for a total of #{@house.total}"
-        if @house.total < 17
-            puts 'will make house hits'
-            # house_hit
-        else
-            puts 'will make compare hands'
-            # compare_hands
-        end
+        house_hand_check
+        # if @house.total < 17
+        #     puts "House will hit."
+        #     puts ''
+        #     house_hit
+        # else
+        #     puts 'House will stay.'
+        #     puts 'will make compare hands'
+        #     # compare_hands
+        # end
     end
 
 
