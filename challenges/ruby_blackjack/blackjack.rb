@@ -32,6 +32,22 @@ class Blackjack
         end
     end
 
+    def check_deck
+        if @deck.length == 0
+            puts 'The deck is empty. Please wait a moment while we replenish it.'
+            puts ''
+            refresh_deck
+        end
+    end
+
+    def refresh_deck
+        make_suit "club"
+        make_suit "diamond"
+        make_suit "spade"
+        make_suit "heart"
+        @deck.shuffle!
+    end
+
     class Player
         attr_accessor :hand, :bankroll, :total
         attr_reader :name
@@ -47,7 +63,7 @@ class Blackjack
     def player_hit 
         @player.total = 0
         @player.hand.push @deck.pop
-        # p @player.hand
+        check_deck
         i = 0
         while i < @player.hand.length do
             @player.total += @player.hand[i].value
@@ -75,7 +91,7 @@ class Blackjack
 
     def player_bust
         @player.bankroll -= 10
-        # @house.bankroll += 10
+        @house.bankroll += 10
         puts "You went over with a total of #{@player.total}. Your bankroll is now at $#{@player.bankroll}."
         puts ''
         if @player.bankroll == 0 
@@ -88,6 +104,7 @@ class Blackjack
     def house_hit
         @house.total = 0
         @house.hand.push @deck.pop
+        check_deck
         i = 0
         while i < @house.hand.length do
             @house.total += @house.hand[i].value
@@ -165,11 +182,12 @@ class Blackjack
 
     def prepare_game
 
-        make_suit "club"
-        make_suit "diamond"
-        make_suit "spade"
-        make_suit "heart"
-        @deck.shuffle!
+        # make_suit "club"
+        # make_suit "diamond"
+        # make_suit "spade"
+        # make_suit "heart"
+        # @deck.shuffle!
+        refresh_deck
         print "Enter your name: "
         @player = Player.new gets.chomp, 100
         @house = Player.new "House", 10000
@@ -190,6 +208,7 @@ class Blackjack
         2.times do
             @house.total = 0
             @house.hand.push @deck.pop
+            check_deck
             i = 0
             while i < @house.hand.length do
                 @house.total += @house.hand[i].value
@@ -225,26 +244,19 @@ class Blackjack
         puts ''
         # puts "House has #{@house.hand[0].name} and #{@house.hand[1].name} for a total of #{@house.total}"
         house_hand_check
-        # if @house.total < 17
-        #     puts "House will hit."
-        #     puts ''
-        #     house_hit
-        # else
-        #     puts 'House will stay.'
-        #     puts 'will make compare hands'
-        #     # compare_hands
-        # end
     end
 
 
 
-    def check_deck
-        i = 0
-        while i < @deck.length do
-            puts @deck[i].name
-            i += 1
-        end
-    end
+    # def check_deck
+    #     i = 0
+    #     while i < @deck.length do
+    #         puts @deck[i].name
+    #         i += 1
+    #     end
+    # end
+
+    # lol look at this sneaky little thing causing trouble!
 end
 
 
