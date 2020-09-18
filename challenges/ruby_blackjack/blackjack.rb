@@ -62,20 +62,22 @@ class Blackjack
     end
 
     def player_hand_check
+        puts "#{@player.name} currently has:"
+        i = 0
+        while i < @player.hand.length do
+            puts @player.hand[i].name
+            i += 1
+        end
+        puts "for a total of #{@player.total}"
         if @player.total > 21
-            player_lose
+            player_bust
         else
-            puts "#{@player.name} currently has:"
-            i = 0
-            while i < @player.hand.length do
-                puts @player.hand[i].name
-                i += 1
-            end
-            puts "for a total of #{@player.total}"
+            hit_or_stay
+
         end
     end
 
-    def player_lose
+    def player_bust
         @player.bankroll -= 10
         # @house.bankroll += 10
         puts "You went over with a total of #{@player.total}. Your bankroll is now at $#{@player.bankroll}."
@@ -83,7 +85,7 @@ class Blackjack
         if @player.bankroll == 0 
             game_over 
         else
-            another_deal?
+            another_deal
         end
     end
 
@@ -98,10 +100,10 @@ class Blackjack
         # if @house.hand.length > 1 then house_hand_check end
     end
     
-    def another_deal?
+    def another_deal
         puts ''
         puts 'Would you like another deal? Press (d) to deal or (q) to quit'
-        input = gets.chomp.downcase!
+        input = gets.chomp.downcase
         puts ''
         if input == 'q'
             puts "Ok. Your final bankroll was #{@player.bankroll}. Until next time!"
@@ -111,7 +113,7 @@ class Blackjack
             new_deal
         else
             puts "You need to press (d) for deal or (q) for quit."
-            another_deal?
+            another_deal
         end
     end
 
@@ -143,7 +145,25 @@ class Blackjack
         2.times {house_hit}
         puts "House has #{@house.hand[0].name} and one other card."
         # puts "House total: #{@house.total}"
+        hit_or_stay
     end
+
+    def hit_or_stay
+        puts ''
+        puts 'Would you like to hit (h) or stay (s): '
+        input = gets.chomp.downcase
+        if input == 'h'
+            player_hit
+        elsif input == 's'
+            # player_stay
+            puts 'will run player stay'
+        else
+            puts 'You didn\'t type h or s.'
+            hit_or_stay
+        end
+    end
+
+
 
     def check_deck
         i = 0
@@ -163,9 +183,8 @@ def play_blackjack
     blackjack.prepare_game
     blackjack.new_deal
     puts ''
-    puts "Remaining cards: #{blackjack.deck.length}"
-    puts ''
-    
+    # puts "Remaining cards: #{blackjack.deck.length}"
+    # puts ''
 end
 
 play_blackjack
