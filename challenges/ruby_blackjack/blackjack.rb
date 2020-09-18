@@ -42,11 +42,6 @@ class Blackjack
             @bankroll = bankroll
             @total = 0
         end
-
-        def stay
-            #write stay
-        end
-
     end
 
     def player_hit 
@@ -69,9 +64,11 @@ class Blackjack
             i += 1
         end
         puts "for a total of #{@player.total}"
+        puts ''
         if @player.total > 21
             player_bust
         else
+            puts 'phd hit'
             hit_or_stay
 
         end
@@ -138,14 +135,16 @@ class Blackjack
     end
 
     def new_deal
-        @player.hand = []
-        2.times {player_hit}
+        puts "Remaining cards: #{@deck.length}"
         puts ''
         @house.hand = []
         2.times {house_hit}
-        puts "House has #{@house.hand[0].name} and one other card."
+        puts "House gets #{@house.hand[0].name} and one other card."
+        puts ''
+        @player.hand = []
+        2.times {player_hit}
+        puts ''
         # puts "House total: #{@house.total}"
-        hit_or_stay
     end
 
     def hit_or_stay
@@ -155,11 +154,24 @@ class Blackjack
         if input == 'h'
             player_hit
         elsif input == 's'
-            # player_stay
-            puts 'will run player stay'
+            player_stay
         else
             puts 'You didn\'t type h or s.'
+            puts 'hs else'
             hit_or_stay
+        end
+    end
+
+    def player_stay
+        puts ''
+        puts "Player has #{@player.total}."
+        # puts "House has #{@house.hand[0].name} and #{@house.hand[1].name} for a total of #{@house.total}"
+        if @house.total < 17
+            puts 'will make house hits'
+            # house_hit
+        else
+            puts 'will make compare hands'
+            # compare_hands
         end
     end
 
@@ -183,8 +195,6 @@ def play_blackjack
     blackjack.prepare_game
     blackjack.new_deal
     puts ''
-    # puts "Remaining cards: #{blackjack.deck.length}"
-    # puts ''
 end
 
 play_blackjack
