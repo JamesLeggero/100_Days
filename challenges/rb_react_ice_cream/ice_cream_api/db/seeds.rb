@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+    # IceCream.create([
+    #     {name: "Meatball", description: "A delicious mix of ice-cold vanilla bean and piping hot pork, veal, and beef meatballs. Just like mama used to make!"},
+    #     {name: "Welcome to Tokyo", description: "Mmm! Visit the Land of the Rising Sun with eel, salmon, and crunchy tuna sashimi mixed into cherry ice cream!"}
+    # ])
+
+IceCream.find(1).pints.create(pints_sold: 1000, pints_made: 2000, profit_per_pint: 0.5, month: 'January')
+IceCream.find(1).pints.create(pints_sold: 220, pints_made: 200, profit_per_pint: 0.2, month: 'February')
+IceCream.find(1).pints.create(pints_sold: 10, pints_made: 20, profit_per_pint: 0.1, month: 'March')
+IceCream.find(1).pints.create(pints_sold: 210, pints_made: 20, profit_per_pint: 0.1, month: 'April')
+IceCream.find(1).pints.create(pints_sold: 400, pints_made: 200, profit_per_pint: 0.2, month: 'May')
+IceCream.find(1).pints.create(pints_sold: 1000, pints_made: 100, profit_per_pint: 0.5, month: 'June')
+IceCream.find(1).pints.create(pints_sold: 5000, pints_made: 4000, profit_per_pint: 0.9, month: 'July')
+IceCream.find(1).pints.create(pints_sold: 9000, pints_made: 5000, profit_per_pint: 0.9, month: 'August')
+IceCream.find(1).pints.create(pints_sold: 1000, pints_made: 1000, profit_per_pint: 0.5, month: 'September')
+IceCream.find(1).pints.create(pints_sold: 500, pints_made: 1000, profit_per_pint: 0.4, month: 'October')
+IceCream.find(1).pints.create(pints_sold: 400, pints_made: 200, profit_per_pint: 0.3, month: 'November')
+IceCream.find(1).pints.create(pints_sold: 100, pints_made: 200, profit_per_pint: 0.1, month: 'December')
+IceCream.find(2).pints.create(pints_sold: 10000, pints_made: 20000, profit_per_pint: 1.5, month: 'January')
+IceCream.find(2).pints.create(pints_sold: 9000, pints_made: 1000, profit_per_pint: 0.5, month: 'February')
+IceCream.find(2).pints.create(pints_sold: 8000, pints_made: 4000, profit_per_pint: 0.5, month: 'March')
