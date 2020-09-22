@@ -7,7 +7,7 @@
 
 
 ## My Repos
- 1. [Challenges Repo](https://github.com/JamesLeggero/100DaysOfCodeTracker/tree/master/challenges)
+ 1. [Challenges Repo](https://github.com/JamesLeggero/100_Days/tree/master/challenges)
  1. [project 1 code]()
  1. [project 2 code]()
  1. [project 3 code]()
