@@ -1,0 +1,2 @@
+class Pint < ApplicationRecord
+end
