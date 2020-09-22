@@ -3,6 +3,7 @@ class PintsController < ApplicationController
 
   # GET /pints
   def index
+    # @pints = Pint.where(ice_cream_id: params[:ice_cream_id])
     @pints = Pint.all
 
     render json: @pints

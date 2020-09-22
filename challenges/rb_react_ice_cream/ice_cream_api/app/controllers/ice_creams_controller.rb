@@ -10,7 +10,8 @@ class IceCreamsController < ApplicationController
 
   # GET /ice_creams/1
   def show
-    render json: @ice_cream
+    pints = @ice_cream.pints
+    render json: {ice_cream: @ice_cream, pints: pints}
   end
 
   # POST /ice_creams
