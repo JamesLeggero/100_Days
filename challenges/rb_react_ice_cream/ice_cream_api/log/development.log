@@ -419,3 +419,204 @@ Processing by PintsController#index as HTML
 Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.7ms | Allocations: 2827)
 
 
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 19:55:23 -0400
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (0.5ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.6ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 43ms (Views: 14.1ms | ActiveRecord: 13.9ms | Allocations: 14944)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 19:55:34 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (9.8ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (22.3ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 42ms (Views: 7.5ms | ActiveRecord: 32.2ms | Allocations: 3315)
+
+
+Started GET "/ice_creams/" for 127.0.0.1 at 2020-09-22 19:58:59 -0400
+Processing by IceCreamsController#index as */*
+  [1m[36mIceCream Load (4.1ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams"[0m
+  ↳ app/controllers/ice_creams_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 4.1ms | Allocations: 1061)
+
+
+Started GET "/pints" for ::1 at 2020-09-22 20:01:31 -0400
+Processing by PintsController#index as HTML
+  [1m[36mPint Load (0.5ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 2828)
+
+
+Started GET "/pints/" for 127.0.0.1 at 2020-09-22 20:01:45 -0400
+Processing by PintsController#index as */*
+  [1m[36mPint Load (11.9ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 4.4ms | ActiveRecord: 11.9ms | Allocations: 2798)
+
+
+Started GET "/pints/" for 127.0.0.1 at 2020-09-22 20:04:45 -0400
+Processing by PintsController#index as */*
+  [1m[36mPint Load (0.5ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 2816)
+
+
+Started GET "/pints/" for 127.0.0.1 at 2020-09-22 20:06:53 -0400
+Processing by PintsController#index as */*
+  [1m[36mPint Load (1.6ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 1.6ms | Allocations: 2816)
+
+
+Started GET "/pints/" for 127.0.0.1 at 2020-09-22 20:08:12 -0400
+Processing by PintsController#index as */*
+  [1m[36mPint Load (8.0ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 6.0ms | ActiveRecord: 8.0ms | Allocations: 2798)
+
+
+Started GET "/pints/" for 127.0.0.1 at 2020-09-22 20:08:36 -0400
+Processing by PintsController#index as */*
+  [1m[36mPint Load (11.9ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 18ms (Views: 5.9ms | ActiveRecord: 11.9ms | Allocations: 2799)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:09:10 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (1.4ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.5ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 1.9ms | Allocations: 3299)
+
+
+Started GET "/ice_creams/" for 127.0.0.1 at 2020-09-22 20:09:35 -0400
+Processing by IceCreamsController#index as */*
+  [1m[36mIceCream Load (0.4ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams"[0m
+  ↳ app/controllers/ice_creams_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 1042)
+
+
+Started GET "/ice_creams/1/pints" for 127.0.0.1 at 2020-09-22 20:09:44 -0400
+Processing by PintsController#index as */*
+  Parameters: {"ice_cream_id"=>"1"}
+  [1m[36mPint Load (0.8ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.8ms | Allocations: 2798)
+
+
+Started GET "/ice_creams/1/pints" for 127.0.0.1 at 2020-09-22 20:12:03 -0400
+Processing by PintsController#index as */*
+  Parameters: {"ice_cream_id"=>"1"}
+  [1m[36mPint Load (10.8ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 4.4ms | ActiveRecord: 10.8ms | Allocations: 2798)
+
+
+Started GET "/ice_creams/1/pints" for 127.0.0.1 at 2020-09-22 20:12:29 -0400
+Processing by PintsController#index as */*
+  Parameters: {"ice_cream_id"=>"1"}
+  [1m[36mPint Load (10.2ms)[0m  [1m[34mSELECT "pints".* FROM "pints"[0m
+  ↳ app/controllers/pints_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 10.2ms | Allocations: 2798)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:13:48 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (6.8ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.6ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 14ms (Views: 4.6ms | ActiveRecord: 7.3ms | Allocations: 3299)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:14:09 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (0.5ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (8.1ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 17ms (Views: 6.2ms | ActiveRecord: 8.6ms | Allocations: 3298)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:14:31 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (11.2ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (1.0ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 19ms (Views: 4.6ms | ActiveRecord: 12.2ms | Allocations: 3299)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:16:02 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (1.5ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (3.7ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 13ms (Views: 6.2ms | ActiveRecord: 5.2ms | Allocations: 3298)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:18:38 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (1.8ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.6ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 2.3ms | Allocations: 3298)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:19:31 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (16.4ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (3.4ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 28ms (Views: 6.3ms | ActiveRecord: 19.9ms | Allocations: 3298)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:26:08 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (0.5ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.5ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.1ms | Allocations: 3447)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:27:27 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (1.1ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (16.4ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 23ms (Views: 4.2ms | ActiveRecord: 17.5ms | Allocations: 3298)
+
+
+Started GET "/ice_creams/1" for 127.0.0.1 at 2020-09-22 20:27:58 -0400
+Processing by IceCreamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mIceCream Load (23.8ms)[0m  [1m[34mSELECT "ice_creams".* FROM "ice_creams" WHERE "ice_creams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:45:in `set_ice_cream'
+  [1m[36mPint Load (0.5ms)[0m  [1m[34mSELECT "pints".* FROM "pints" WHERE "pints"."ice_cream_id" = $1[0m  [["ice_cream_id", 1]]
+  ↳ app/controllers/ice_creams_controller.rb:14:in `show'
+Completed 200 OK in 32ms (Views: 5.9ms | ActiveRecord: 24.3ms | Allocations: 3298)
+
+
