@@ -22,20 +22,28 @@ export default function Users(props){
         getData()
     }, [])
 
-    const [user, setUser] = useState({})
+    const [recipes, setRecipes] = useState([])
 
-    const getUserData = async event => {
+    const getRecipes = async event => {
         event.persist()
-        const response = await axios.get(`http://localhost:3000/users/${event.target.id}`)
+        const response = await axios.get(`/recipes`)
        
-        await setUser({...user, ...response.data})
+        await setRecipes(response.data)
         
-        await console.log(user)
+        await console.log(recipes)
     }
 
     useEffect(()=>{
         
-    }, [user])
+    }, [recipes])
+
+    const handleSubmit = async event => {
+        event.preventDefault()
+        const response = await axios.post('http://localhost:3000/recipes')
+        // await setRecipes(response.data)
+        await console.log(response.data)
+
+    }
 
 
     const signature = () => {
@@ -57,25 +65,34 @@ export default function Users(props){
         <div className='top'>
 
         {
-            users.map(baker => {
+            users.map(user => {
                 return (
-                    <div key={baker.id}>
-                        <div onClick={getUserData}>
+                    <div key={user.id}>
+                        
                     
                     
-                    <h2 >{baker.name}</h2>
-                    </div>
+                    <h2 >{user.name}</h2>
+                    
                     <ul>
                     {
-                        baker.cookies.map(cookie => {
+                        user.cookies.map(cookie => {
                             return (
-                                 cookie.id === baker.sig_rec ?
-                            <li key={cookie.id} style={signature()}>{cookie.name}</li> :
+                                 cookie.id === user.sig_rec ?
+                            <li key={cookie.id} style={signature()} >{cookie.name}</li> :
                             <li key={cookie.id}>{cookie.name}</li>
                                 
                             )
                         })
                     }
+                    {
+                        user.recipes.map(recipe=>{
+                            return <li key={recipe.id}>
+                                <h6>{recipe.recipe}</h6></li>
+                        })
+                    }
+
+                    
+
                     </ul>
                     
                     </div>
@@ -83,7 +100,17 @@ export default function Users(props){
             })
         }
         </div>
-        <Show user={user} />
+        {/* <Show recipes={recipes}/> */}
+        <form onSubmit={handleSubmit}>
+            <label htmlFor='user_id' />
+            <input id='user_id' type='text' placeholder="Please enter User ID "></input>
+            <label htmlFor='cookie_id' />
+            <input type='text' id='cookie_id' placeholder="Please enter Cookie ID"></input>
+            <label htmlFor='recipe' />
+            <input type='textarea' id='recipe' placeholder="Please write recipe"></input>
+            <input type='submit' value='submit'></input>            
+        
+        </form>
         </>
     )
 

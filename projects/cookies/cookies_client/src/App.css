@@ -1,7 +1,13 @@
 .App {
   text-align: center;
+  display: block;
 }
 
 ul {
   list-style: none;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
 }

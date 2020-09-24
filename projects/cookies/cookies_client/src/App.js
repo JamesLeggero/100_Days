@@ -11,14 +11,14 @@ function App() {
   return (
     <div className="App">
       
-      <Router>
-        <Link to={'/users'}>Go home</Link>
+      
+        
         {/* <Switch>
           <Route path='/users' component={Users} />
           <Route path='' */}
         <Users />
         {/* </Switch> */}
-      </Router>
+      
      
     </div>
   );
