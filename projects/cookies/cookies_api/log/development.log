@@ -20,3 +20,110 @@ Migrating to CreateCookies (20200924011610)
   [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(739906514752554975)[0m
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(739906514752554975)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRecipes (20200924012834)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.5ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "recipe" character varying, "user_id" bigint NOT NULL, "cookie_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_cfdde82d1a"
+FOREIGN KEY ("cookie_id")
+  REFERENCES "cookies" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_cookie_id" ON "recipes"  ("cookie_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200924012834"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(739906514752554975)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(739906514752554975)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRecipes (20200924012834)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE "recipes"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200924012834"]]
+  [1m[35m (43.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(739906514752554975)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(739906514752554975)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRecipes (20200924012834)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "recipe" character varying, "user_id" bigint NOT NULL, "cookie_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_cfdde82d1a"
+FOREIGN KEY ("cookie_id")
+  REFERENCES "cookies" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_cookie_id" ON "recipes"  ("cookie_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200924012834"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(739906514752554975)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCookie Load (0.5ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "James Leggero"], ["sig_rec", 1], ["created_at", "2020-09-24 01:32:45.265744"], ["updated_at", "2020-09-24 01:32:45.265744"]]
+  [1m[35m (42.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "John Davis"], ["sig_rec", 5], ["created_at", "2020-09-24 01:32:45.312474"], ["updated_at", "2020-09-24 01:32:45.312474"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Alex Yanovich"], ["sig_rec", 3], ["created_at", "2020-09-24 01:32:45.317261"], ["updated_at", "2020-09-24 01:32:45.317261"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cody Howard"], ["sig_rec", 4], ["created_at", "2020-09-24 01:32:45.321503"], ["updated_at", "2020-09-24 01:32:45.321503"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Arthur Bernier Jr"], ["sig_rec", 2], ["created_at", "2020-09-24 01:32:45.325276"], ["updated_at", "2020-09-24 01:32:45.325276"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ira Herman"], ["sig_rec", 8], ["created_at", "2020-09-24 01:32:45.329004"], ["updated_at", "2020-09-24 01:32:45.329004"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ayla Ex"], ["sig_rec", 6], ["created_at", "2020-09-24 01:32:45.332601"], ["updated_at", "2020-09-24 01:32:45.332601"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "sig_rec", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Paul Chapman"], ["sig_rec", 7], ["created_at", "2020-09-24 01:32:45.336161"], ["updated_at", "2020-09-24 01:32:45.336161"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.5ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Chocolate Chip"], ["nuts", true], ["created_at", "2020-09-24 01:32:45.348331"], ["updated_at", "2020-09-24 01:32:45.348331"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Macadamia"], ["nuts", true], ["created_at", "2020-09-24 01:32:45.352102"], ["updated_at", "2020-09-24 01:32:45.352102"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Sugar"], ["nuts", false], ["created_at", "2020-09-24 01:32:45.355607"], ["updated_at", "2020-09-24 01:32:45.355607"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lemon"], ["nuts", false], ["created_at", "2020-09-24 01:32:45.359012"], ["updated_at", "2020-09-24 01:32:45.359012"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Oatmeal Raisin"], ["nuts", true], ["created_at", "2020-09-24 01:32:45.362418"], ["updated_at", "2020-09-24 01:32:45.362418"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gingerbread"], ["nuts", false], ["created_at", "2020-09-24 01:32:45.365730"], ["updated_at", "2020-09-24 01:32:45.365730"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.3ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Peanut Butter"], ["nuts", true], ["created_at", "2020-09-24 01:32:45.368934"], ["updated_at", "2020-09-24 01:32:45.368934"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCookie Create (0.2ms)[0m  [1m[32mINSERT INTO "cookies" ("name", "nuts", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Raspberry Thumbprint"], ["nuts", false], ["created_at", "2020-09-24 01:32:45.372063"], ["updated_at", "2020-09-24 01:32:45.372063"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCookie Load (0.5ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCookie Load (0.4ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCookie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "cookies" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCookie Load (0.3ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies"[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT $1[0m  [["LIMIT", 11]]
