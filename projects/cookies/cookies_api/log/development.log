@@ -127,3 +127,87 @@ FOREIGN KEY ("cookie_id")
   [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
   [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCookie Load (41.6ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Create (4.7ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Preheat oven to 350 degrees F. Cream together the butter, white sugar, and brown sugar until smooth. Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water. Add to batter along with salt. Stir in flour, chocolate chips, and nuts. Drop by large spoonfuls onto ungreased pans. Bake for about 10 minutes in the preheated oven, or until edges are nicely browned."], ["user_id", 1], ["cookie_id", 1], ["created_at", "2020-09-24 02:04:09.118829"], ["updated_at", "2020-09-24 02:04:09.118829"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Make thumbprint cookies according to directions."], ["user_id", 1], ["cookie_id", 8], ["created_at", "2020-09-24 02:04:09.142115"], ["updated_at", "2020-09-24 02:04:09.142115"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Preheat oven to 350 degrees F. Grease two large cookie sheets or line with Silpat or parchment paper. In a large mixing bowl, beat butter until creamy. Add the brown sugar and white sugar, beat until fluffy, about 3 minutes. Beat in eggs, one at a time. Add the vanilla extract. Mix flour, salt, baking soda, cinnamon, and nutmeg together in medium bowl. Stir the dry ingredients into the butter-sugar mixture. Stir in the raisins and nuts. Stir in the oats. Bake until the edges of the cookies turn golden brown, about 10 to 12 minutes."], ["user_id", 2], ["cookie_id", 5], ["created_at", "2020-09-24 02:04:09.149595"], ["updated_at", "2020-09-24 02:04:09.149595"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Make delicious peanut butter cookies."], ["user_id", 2], ["cookie_id", 7], ["created_at", "2020-09-24 02:04:09.157137"], ["updated_at", "2020-09-24 02:04:09.157137"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.3ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Preheat oven to 375 degrees F (190 degrees C). In a small bowl, stir together flour, baking soda, and baking powder. Set aside. In a large bowl, cream together the butter and sugar until smooth. Beat in egg and vanilla. Gradually blend in the dry ingredients. Roll rounded teaspoonfuls of dough into balls, and place onto ungreased cookie sheets. Bake 8 to 10 minutes in the preheated oven, or until golden. Let stand on cookie sheet two minutes before removing to cool on wire racks."], ["user_id", 3], ["cookie_id", 3], ["created_at", "2020-09-24 02:04:09.165457"], ["updated_at", "2020-09-24 02:04:09.165457"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Whip up some gingerbread cookies - it's simple."], ["user_id", 3], ["cookie_id", 6], ["created_at", "2020-09-24 02:04:09.173778"], ["updated_at", "2020-09-24 02:04:09.173778"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Cream together the butter, sugars, egg, and lemon extract. Add in the lemon zest, honey, and optional food coloring, followed by the dry ingredients. Using a 1/4 cup measure, scoop the cookie dough into balls and chill for at least 3 hours. Once the cookie dough has chilled, bake until the edges have set and the tops are just set, even if slightly undercooked, pale, and glossy in the center. Let these lemon cookies cool for 10 minutes on the baking sheet, then dust with confectioners’ sugar, if desired. "], ["user_id", 4], ["cookie_id", 4], ["created_at", "2020-09-24 02:04:09.181723"], ["updated_at", "2020-09-24 02:04:09.181723"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Mix oats and cookie batter; bake."], ["user_id", 4], ["cookie_id", 5], ["created_at", "2020-09-24 02:04:09.189442"], ["updated_at", "2020-09-24 02:04:09.189442"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Preheat oven to 350 degrees F (175 degrees C). In a large bowl, cream together the butter, brown sugar, and white sugar until smooth. Beat in the eggs, one at a time, then stir in the vanilla and almond extracts. Combine the flour, baking soda, and salt; gradually stir into the creamed mixture. Mix in the macadamia nuts and white chocolate. Drop dough by teaspoonfuls onto ungreased cookie sheets. Bake for 10 minutes in the preheated oven, or until golden brown."], ["user_id", 5], ["cookie_id", 2], ["created_at", "2020-09-24 02:04:09.197924"], ["updated_at", "2020-09-24 02:04:09.197924"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Bake some lemons, rinds on. Add sugar."], ["user_id", 5], ["cookie_id", 4], ["created_at", "2020-09-24 02:04:09.205448"], ["updated_at", "2020-09-24 02:04:09.205448"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Preheat oven to 350º and line two baking sheets with parchment. In a large bowl, whisk together flour, baking powder, and salt. In another bowl, beat butter and sugar until pale and fluffy, about 3 minutes. Beat in egg and vanilla, then add dry ingredients in two batches until incorporated. Using a small cookie scoop, scoop 1” balls onto prepared baking sheets. Press a thumbprint into center of each ball, 1/2” deep. Fill with a small spoonful of jam. Bake until edges of cookies are golden, 13 to 14 minutes. Cool on baking sheets before serving."], ["user_id", 6], ["cookie_id", 8], ["created_at", "2020-09-24 02:04:09.213550"], ["updated_at", "2020-09-24 02:04:09.213550"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Buy some sugar cookie batter from the store and bake."], ["user_id", 6], ["cookie_id", 3], ["created_at", "2020-09-24 02:04:09.225383"], ["updated_at", "2020-09-24 02:04:09.225383"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.1ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "In a small bowl, whisk together flour, baking powder, baking soda, salt, ginger, cinnamon, and cloves until well blended. Add molasses, vanilla, and lemon zest and continue to mix until well blended. Gradually stir in dry ingredients until blended and smooth. Divide dough in half and wrap each half in plastic and let stand at room temperature for at least 2 hours or up to 8 hours. Preheat oven to 375 deg. Prepare baking sheets by lining with parchment paper.Grease or line cookie sheets with parchment paper. Place 1 portion of the dough on a lightly floured surface. Sprinkle flour over dough and rolling pin. Roll dough to a scant 1/4-inch thick. Use additional flour to avoid sticking. Cut out cookies with desired cutter. Bake 1 sheet at a time for 7-10 minutes."], ["user_id", 7], ["cookie_id", 6], ["created_at", "2020-09-24 02:04:09.232551"], ["updated_at", "2020-09-24 02:04:09.232551"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Ask a neighbor to make macadamia nut cookies for you."], ["user_id", 7], ["cookie_id", 2], ["created_at", "2020-09-24 02:04:09.240709"], ["updated_at", "2020-09-24 02:04:09.240709"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Cream butter, peanut butter, and sugars together in a bowl; beat in eggs. In a separate bowl, sift flour, baking powder, baking soda, and salt; stir into butter mixture. Put dough in refrigerator for 1 hour. Roll dough into 1 inch balls and put on baking sheets. Flatten each ball with a fork, making a crisscross pattern. Bake in a preheated 375 degrees F oven for about 10 minutes or until cookies begin to brown."], ["user_id", 8], ["cookie_id", 7], ["created_at", "2020-09-24 02:04:09.248046"], ["updated_at", "2020-09-24 02:04:09.248046"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCookie Load (0.2ms)[0m  [1m[34mSELECT "cookies".* FROM "cookies" WHERE "cookies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("recipe", "user_id", "cookie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe", "Mix chocolate chips, sugar, egg, and flour. Eat raw from bowl."], ["user_id", 8], ["cookie_id", 1], ["created_at", "2020-09-24 02:04:09.255665"], ["updated_at", "2020-09-24 02:04:09.255665"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecipe Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "recipes" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
