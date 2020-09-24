@@ -5,12 +5,13 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
+    # render json: @recipes.to_json(include: [:cookie, :user])
     render json: @recipes
   end
 
   # GET /recipes/1
   def show
-    render json: @recipe
+    render json: @recipe.to_json(include: [:cookie, :user])
   end
 
   # POST /recipes
