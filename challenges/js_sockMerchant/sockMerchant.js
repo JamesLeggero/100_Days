@@ -24,7 +24,7 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-let pairCount = 0
+// let pairCount = 0
 // Complete the sockMerchant function below.
 function sockMerchant(n, ar) {
     /*var called paircount
@@ -42,25 +42,49 @@ function sockMerchant(n, ar) {
 
     */
 
-if (ar.length === 0) {
-    return pairCount
-    } else {
-        // return pairCount
-        for (let i = 1; i < ar.length - 1; i++) {
-            if (ar[i] === ar[0]) {
-                pairCount++
-                ar.splice(i, 1)
-                ar.shift()
-                console.log(`${pairCount} at ${i} len ${ar.length}`)
-                return sockMerchant(n, ar)
-                // return `${pairCount} at ${i} len ${ar.length}`
-            }
-        }
-        ar.shift()
-        return sockMerchant(n, ar)
+// if (ar.length === 0) {
+//     return pairCount
+//     } else {
+//         // return pairCount
+//         for (let i = 1; i < ar.length - 1; i++) {
+//             if (ar[i] === ar[0]) {
+//                 pairCount++
+//                 ar.splice(i, 1)
+//                 ar.shift()
+//                 console.log(`${pairCount} at ${i} len ${ar.length}`)
+//                 return sockMerchant(n, ar)
+//                 // return `${pairCount} at ${i} len ${ar.length}`
+//             }
+//         }
+//         ar.shift()
+//         return sockMerchant(n, ar)
         
-    }
+//     }
 
+// }
+
+/* we set sock to match at ar[0]
+we run a loop that says if you find this value, ar = ar.splice(i, 1).shift()
+then you run sockM n,ar with this new array (maybe break after?)
+if you get through and dont run it, then you have remaining unmatched socks. sO you can say n - ar.len, gives you the pairs, then divide by 2 */
+    ar.sort()
+    // let noMatch = 0
+    let pairCount = 0
+    function checkPair (ar) {
+            if (ar.length === 0) {
+                return pairCount
+            } else if (ar[0] === ar[1]){
+                ar.splice(0, 2)
+                pairCount++
+                checkPair(ar)
+            } else {
+                ar.splice(0, 1)
+                checkPair(ar)
+            }
+
+        }
+    checkPair(ar)
+    return pairCount
 }
 
 
