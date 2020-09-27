@@ -38,15 +38,37 @@ function repeatedString(s, n) {
     divide n by sting.length
     multiply by aCount?
     */
+
+    
     let aCount = 0
     for (let i = 0; i < s.length; i++) {
         if (s[i] === 'a')
         aCount++
     }
-    return Math.round(aCount * (n / s.length))
-    //something here... possibly with modulo remainder, to add... 16/23 passed
 
+    let aOver = s.slice(n % s.length) //this gets a substring with "leftover" string parts
+    
+    let aOverCount = 0
+    for (let i = 0; i < aOver.length; i++) {
+        if (aOver[i] === 'a')
+        aOverCount++
+    }
+    if (n % s.length === 0) return aCount * (n / s.length)
+    return aCount * Math.ceil(n / s.length) - aOverCount
+    
 
+    // while (s.length < n) {
+    //     s = s.concat(s)
+        
+    // }
+    // s = s.slice(0, n)
+    // let aCount = 0
+    // for (let i = 0; i < n; i++) {
+    //     if (s[i] === 'a')
+    //     aCount++
+    // }
+
+    // return aCount
 }
 
 function main() {
