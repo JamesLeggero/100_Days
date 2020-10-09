@@ -28,29 +28,12 @@ function checkMagazine(magazine, note) {
     function inMag(word) {
         for (let i = 0; i < magazine.length; i++) {
         if (word === magazine[i]) {
-            return (magazine.indexOf(magazine[i]))
+            return i
             }
             
         }
         return false
     }
-
-
-    // for (let i = 0; i < note.length; i++) {
-    //     if (note.length === 0) {
-    //         console.log('Yes')
-    //         return
-    //     } else if (!inMag(note[i]) === true){
-    //         console.log('No')
-    //         return
-    //     } else {
-    //         note.splice(note[i], 1)
-    //         magazine.splice(inMag(note[i]), 1)
-    //         checkMagazine(magazine, note)
-    //     }
-        
-        
-    // }
 
     function noteTest(words) {
 
@@ -60,7 +43,7 @@ function checkMagazine(magazine, note) {
                 console.log('No')
                 return
             } else {
-                magazine.splice(inMag(words[i]), 1)  
+                magazine.splice(inMag(words[i]), 1)
             }
             
         }
@@ -70,18 +53,6 @@ function checkMagazine(magazine, note) {
     }
 
     noteTest(note)
-
-    
-    
-
-
-    
-
-    
-
-
-    
-
 
 }
 
