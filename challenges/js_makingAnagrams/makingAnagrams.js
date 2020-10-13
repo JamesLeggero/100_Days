@@ -26,19 +26,7 @@ function readLine() {
 
 // Complete the makeAnagram function below.
 function makeAnagram(a, b) {
-    // const arrA = a.split('')
-    // const arrB = b.split('')
-    // const newArr = arrA.concat(arrB).sort()
-    // let dupeCount = 0
-    // let i = 0
-    // while (i < newArr.length) {
-    //     if(newArr[i] === newArr[i+1]){
-    //         dupeCount++
-    //         i += 2
-    //     } else {
-    //         i++
-    //     } 
-    // }
+    
 
     const arrA = [...a]
     const arrB = [...b]
@@ -46,17 +34,34 @@ function makeAnagram(a, b) {
     const extraB = []
 
     for (let i = 0; i < arrA.length; i++) {
-        if (!arrB.includes(arrA[i])){
-            // arrA.splice(arrA[i], 1)
-            // arrB.splice(arrB.indexOf(arrA[i]), 1)
+        if (arrB.includes(arrA[i])){
+            arrB[arrB.indexOf(arrA[i])] = null
+            arrA[i] = null
+            // arrA[i] = null
+            // arrA.splice(arrA.indexOf(arrB[i], 1))
+            // arrB.splice(arrB.indexOf(arrA[i], 1))
+            // extraA.push(arrA[i])
+        }
+    }
+
+    // for (let i = 0; i < arrB.length; i++) {
+    //     if (arrA.includes(arrB[i])){
+    //         arrA.splice(arrA[i], 1)
+    //         arrB.splice(arrB.indexOf(arrA[i]), 1)
+            
+    //     }
+    // }
+
+    // return arrA.length + arrB.length
+
+    for (let i = 0; i < arrA.length; i++) {
+        if (arrA[i] !== null) {
             extraA.push(arrA[i])
         }
     }
 
     for (let i = 0; i < arrB.length; i++) {
-        if (!arrA.includes(arrB[i])){
-            // arrA.splice(arrA[i], 1)
-            // arrB.splice(arrB.indexOf(arrA[i]), 1)
+        if (arrB[i] !== null) {
             extraB.push(arrB[i])
         }
     }
