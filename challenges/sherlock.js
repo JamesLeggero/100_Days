@@ -34,56 +34,11 @@ function isValid(s) {
 
     const OVM = Object.values(map)
 
-    // if (s.length % OVM.length === 0 || (s.length - 1) % OVM.length === 0) return 'YES'
-    // return 'NO'
-    
-
-    // const theSame = val => val === OVM[0]
-
-    // if (OVM.every(theSame)) {
-    //     return 'YES'
-    // } else if ( OVM.reduce((a, b)=>{return a+b}) % OVM.length === 1)  {
-    //     return 'YES'
-    // } else {
-    //     return 'NO'
-    // }
-
-    // const OVMCheck = () => {
-    //     return OVM.reduce((a, b)=>{return a+b}) % OVM.length
-    // }
-    // const OVMCheckMinusOne = () => {
-    //     return (OVM.reduce((a, b)=>{return a+b}) - 1) % OVM.length
-    // }
-    // if (OVMCheck() === 0 || OVMCheckMinusOne() === 0) {
-    //     return 'YES'
-    // } else {
-    //     return 'NO'
-    // }
-
-    // return OVMCheckMinusOne()
-
-    // return s.length % OVM.length
-
-    // let removedChar = 0
-    // const freq = OVM[0]
-    // if (OVM.length === 1 | OVM.length === 0) return 'YES'
-    // for (let i = 0; i < OVM.length; i++) {
-    //     if (removedChar > 1) {
-    //         return 'NO'
-    //     } else if (OVM[i] !== freq) {
-    //         if (OVM[i] - 1 === freq) {
-    //             removedChar++
-    //         } else {
-    //             return 'NO'
-    //         }
-    //     }
-    // }
-
     OVM.sort((a,b)=>a-b)
     if (OVM[0] === OVM[OVM.length - 1]) {
         return 'YES'
     } else if (OVM[1] === OVM[OVM.length - 1]) {
-        if (OVM[0] + 1 === OVM[1]) {
+        if (OVM[0] + 1 === OVM[1] || OVM[0] === 1) {
             return 'YES'
         }
     } else if (OVM[0] === OVM[OVM.length - 2]) {
@@ -94,11 +49,6 @@ function isValid(s) {
 
 
     return 'NO'
-
-    // return OVM
-    
-
-
 
 }
 
