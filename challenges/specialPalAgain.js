@@ -63,3 +63,87 @@ Explanation 2
 
 The special palindromic substrings of s = aaaa are {a, a, a, a, aa, aa, aa, aaa, aaa, aaaa} 
 */
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+// Complete the substrCount function below.
+function substrCount(n, s) {
+
+    const fakeArr = []
+    let palCount = 0
+    const sArr = s.split('')
+    // function palCheck(arr) {
+    //     if(arr.length === 1 || arr[0] === arr[arr.length - 1]) {
+    //         return true
+    //     }
+    //     return false
+    // }
+
+    // for (let i = 0; i < sArr.length; i++) {
+    //     if (palCheck(sArr[i])){
+    //         palCount++
+            
+    //     }
+    // }
+
+    function newPalCheck(arg) {
+        if (arg.length === 0 || arg.length === 1) {
+            return true
+        } else {
+            arg.pop()
+            arg.shift()
+            return newPalCheck(arg)
+        }
+        return false   
+    }
+    
+    for (let i = 0; i < sArr.length; i++) {
+        const arrTest = []
+        for (let j = 0; j < sArr.length - i; j++) {
+            arrTest.push(sArr[j])
+        }
+        fakeArr.push(arrTest)
+    }
+
+    return fakeArr
+
+}
+
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine(), 10);
+
+    const s = readLine();
+
+    const result = substrCount(n, s);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
