@@ -264,3 +264,183 @@ function main() {
 
     ws.end();
 }
+
+
+/*
+You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:
+
+The elements of the first array are all factors of the integer being considered
+The integer being considered is a factor of all elements of the second array
+These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.
+
+For example, given the arrays a = [2, 6] and b = [24, 36], there are two numbers between them: 6 and 12. 6%2 = 0, 6%6 = 0, 24%6 = 0 and 36%6 = 0 for the first value. Similarly, 12%2 = 0, 12%6 = 0 and 24%12 = 0, 36%12 = 0.
+
+Function Description
+
+Complete the getTotalX function in the editor below. It should return the number of integers that are betwen the sets.
+
+getTotalX has the following parameter(s):
+
+a: an array of integers
+b: an array of integers
+Input Format
+
+The first line contains two space-separated integers, n and m, the number of elements in array a and the number of elements in array b.
+The second line contains n distinct space-separated integers describing a[i] where 0 ≤ i < n.
+The third line contains m distinct space-separated integers describing b[j] where 0 ≤ j < m.
+
+Constraints
+
+1 ≤ n, m ≤ 10
+a ≤ a[i] ≤ 100
+a ≤ b[j] ≤ 100
+
+Output Format
+
+Print the number of integers that are considered to be between a and b.
+
+Sample Input
+
+2 3
+2 4
+16 32 96
+Sample Output
+
+3
+Explanation
+
+2 and 4 divide evenly into 4, 8, 12 and 16.
+4, 8 and 16 divide evenly into 16, 32, 96.
+
+4, 8 and 16 are the only three numbers for which each element of a is a factor and each is a factor of all elements of b.
+*/
+
+//I'm skipping this one rn
+
+/*
+
+Maria plays college basketball and wants to go pro. Each season she maintains a record of her play. She tabulates the number of times she breaks her season record for most points and least points in a game. Points scored in the first game establish her record for the season, and she begins counting from there.
+
+For example, assume her scores for the season are represented in the array scores = [12, 24, 10, 24]. Scores are in the same order as the games played. She would tabulate her results as follows:
+
+                                 Count
+Game  Score  Minimum  Maximum   Min Max
+ 0      12     12       12       0   0
+ 1      24     12       24       0   1
+ 2      10     10       24       1   1
+ 3      24     10       24       1   1
+Given the scores for a season, find and print the number of times Maria breaks her records for most and least points scored during the season.
+
+Function Description
+
+Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index 0 is for breaking most points records, and index 1 is for breaking least points records.
+
+breakingRecords has the following parameter(s):
+
+scores: an array of integers
+Input Format
+
+The first line contains an integer n, the number of games.
+The second line contains n space-separated integers describing the respective values of score0, score1, ..., score n-1.
+
+Constraints
+
+1 ≤ n ≤ 1000
+0 ≤ scores[i] ≤ 10^8
+
+Output Format
+
+Print two space-seperated integers describing the respective numbers of times the best (highest) score increased and the worst (lowest) score decreased.
+
+Sample Input 0
+
+9
+10 5 20 20 4 5 2 25 1
+Sample Output 0
+
+2 4
+Explanation 0
+
+The diagram below depicts the number of times Maria broke her best and worst records throughout the season:
+
+image
+
+She broke her best record twice (after games 2 and 7) and her worst record four times (after games 1, 4, 6, and 8), so we print 2 4 as our answer. Note that she did not break her record for best score during game , as her score during that game was not strictly greater than her best record at the time.
+
+Sample Input 1
+
+10
+3 4 21 36 10 28 35 5 24 42
+Sample Output 1
+
+4 0
+Explanation 1
+
+The diagram below depicts the number of times Maria broke her best and worst records throughout the season:
+
+image
+
+She broke her best record four times (after games 1, 2, 3, and 9) and her worst record zero times (no score during the season was lower than the one she earned during her first game), so we print 4 0 as our answer.
+*/
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+// Complete the breakingRecords function below.
+function breakingRecords(scores) {
+
+    let max = scores[0]
+    let maxBreak = 0
+    let min = scores[0]
+    let minBreak = 0
+
+    for (let i = 0; i < scores.length; i++){
+        if (scores[i] > max) {
+            maxBreak++
+            max = scores[i]
+        } else if (scores[i] < min) {
+            minBreak++
+            min = scores[i]
+        }
+    }
+
+    return [maxBreak, minBreak]
+
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine(), 10);
+
+    const scores = readLine().split(' ').map(scoresTemp => parseInt(scoresTemp, 10));
+
+    const result = breakingRecords(scores);
+
+    ws.write(result.join(' ') + '\n');
+
+    ws.end();
+}
