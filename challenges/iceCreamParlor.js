@@ -38,7 +38,7 @@ function whatFlavors(cost, money) {
         }
     }
     
-    console.log(flavors[0], flavors[1])
+    console.log(flavors[1], flavors[3])
 
 
 }
