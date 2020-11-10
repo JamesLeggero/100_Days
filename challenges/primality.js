@@ -27,7 +27,14 @@ function readLine() {
 // Complete the primality function below.
 function primality(n) {
     let ans = "Prime"
-    for (let i = 2; i < n; i++) {
+    
+    if (n === 0 || n === 1 || (n % 2 === 0 && n !== 2)) {
+        ans = "Not prime"
+    }
+    if (n % Math.sqrt(n) === Math.sqrt(n)) {
+        ans = "Not prime"
+    }
+    for (let i = 3; i < Math.ceil(Math.sqrt(n)); i += 2) {
         if (n % i === 0) {
             ans = "Not prime"
             break
