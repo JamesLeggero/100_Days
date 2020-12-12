@@ -86,6 +86,26 @@ function squares(a, b) {
 }
 */
 
+//all passed version
+function squares(a, b) {
+    let squareCount = 0
+    
+    //make square numbers UP TO B
+    const squareArray = []
+    let i = 0
+    while ((i + 1)**2 <= b) {
+        squareArray.push((i + 1)**2)
+        i ++
+    }
+    
+    //remove anything lower than a
+    i = 0
+    
+    while (squareArray[i] < a) {
+        squareArray.shift()
+    }
+    return squareArray.length
+}
 
 
 function main() {
