@@ -69,3 +69,14 @@ const makeChange = cents => {
 }
 
 makeChange(137)
+
+const makeChange2 = (cents, curr) => {
+    const finalArray = []
+    for (let i = 0; i < curr.length; i++) {
+        finalArray.push(Math.floor(cents/curr[i]))
+        cents = cents % curr[i]
+    }
+    console.log(finalArray)
+}
+
+makeChange2(137, [25, 10, 5, 1])
